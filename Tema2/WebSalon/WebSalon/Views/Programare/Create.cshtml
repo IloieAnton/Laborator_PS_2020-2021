@@ -1,0 +1,43 @@
+﻿@model WebSalon.Models.Programare
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Programare</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="numeClient" class="control-label"></label>
+                <input asp-for="numeClient" class="form-control" />
+                <span asp-validation-for="numeClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telefon" class="control-label"></label>
+                <input asp-for="telefon" class="form-control" />
+                <span asp-validation-for="telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataOra" class="control-label"></label>
+                <input asp-for="dataOra" class="form-control" />
+                <span asp-validation-for="dataOra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

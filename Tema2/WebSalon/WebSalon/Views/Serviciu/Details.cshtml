@@ -1,0 +1,30 @@
+﻿@model WebSalon.Models.Serviciu
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Serviciu</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numeServiciu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numeServiciu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pret)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pret)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ServiciuId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
