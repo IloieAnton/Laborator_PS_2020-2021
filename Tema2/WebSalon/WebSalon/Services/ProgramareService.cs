@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebSalon.DAL;
 using WebSalon.Data;
 using WebSalon.Models;
+using WebSalon.Services.ExportF;
+
 
 namespace WebSalon.Services
 {
@@ -13,10 +14,12 @@ namespace WebSalon.Services
     {
 
         private UnitOfWork unitOfWork;
+        private ExportFactory exportFactory;
 
         public ProgramareService(WebSalonContext context)
         {
             unitOfWork = new UnitOfWork(context);
+            exportFactory = new ExportFactory();
         }
 
         public void AdaugareProgramare(Programare programare)
@@ -86,6 +89,24 @@ namespace WebSalon.Services
             };
 
             return programareDataViewModel;
+        }
+
+        public void export(string type, List<ProgramareExport> programari) {
+            Export export = null;
+            if(type == "json")
+            {
+                export = exportFactory.create(ExportTypes.JSON);
+            }else if(type == "csv")
+            {
+                export = exportFactory.create(ExportTypes.CSV);
+            }
+
+            export.export(programari);
+        }
+
+        public List<ProgramareExport> getProgramariExport()
+        {
+            return unitOfWork.ProgramareRepository.getProgramariExport();
         }
     }
 }

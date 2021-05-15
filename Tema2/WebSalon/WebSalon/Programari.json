@@ -1,0 +1,61 @@
+[
+  {
+    "ProgramareId": 6,
+    "numeClient": "Iloie Anton",
+    "telefon": "0743234234",
+    "dataOra": "2021-05-12T18:36:00",
+    "servicii": [
+      {
+        "ServiciuId": 2,
+        "numeServiciu": "Aranjare par",
+        "pret": 120,
+        "ProgramareServiciu": null
+      },
+      {
+        "ServiciuId": 3,
+        "numeServiciu": "tuns",
+        "pret": 50,
+        "ProgramareServiciu": null
+      }
+    ],
+    "cost": 170
+  },
+  {
+    "ProgramareId": 7,
+    "numeClient": "Iloie Adi",
+    "telefon": "0743234231",
+    "dataOra": "2021-05-29T21:20:00",
+    "servicii": [
+      {
+        "ServiciuId": 3,
+        "numeServiciu": "tuns",
+        "pret": 50,
+        "ProgramareServiciu": null
+      }
+    ],
+    "cost": 50
+  },
+  {
+    "ProgramareId": 8,
+    "numeClient": "Vasile",
+    "telefon": "0743234234",
+    "dataOra": "2021-05-10T03:01:00",
+    "servicii": [],
+    "cost": 0
+  },
+  {
+    "ProgramareId": 9,
+    "numeClient": "Alexandru",
+    "telefon": "0741178654",
+    "dataOra": "2021-05-13T04:14:00",
+    "servicii": [
+      {
+        "ServiciuId": 4,
+        "numeServiciu": "pensat",
+        "pret": 154.3,
+        "ProgramareServiciu": null
+      }
+    ],
+    "cost": 154.3
+  }
+]

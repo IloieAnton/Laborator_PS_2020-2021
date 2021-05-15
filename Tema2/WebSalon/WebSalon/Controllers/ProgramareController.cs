@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using WebSalon.Data;
 using WebSalon.Models;
 using WebSalon.Services;
+
 
 namespace WebSalon.Controllers
 {
@@ -21,6 +23,27 @@ namespace WebSalon.Controllers
         public ProgramareController(WebSalonContext context)
         {
             this._programareService = new ProgramareService(context);
+        }
+
+        public FileResult Export(string type)
+        {
+            List<ProgramareExport> programari = _programareService.getProgramariExport();
+            _programareService.export(type, programari);
+
+            if (type == "json")
+            {
+                string path = @"D:\sem2@utcn\PS\lab8\WebSalon\WebSalon\Programari.json";
+                var fs = System.IO.File.OpenRead(path);
+                return File(fs, "application/force-download", Path.GetFileName(path));
+
+            }else if(type == "csv")
+            {
+                string path = @"D:\sem2@utcn\PS\lab8\WebSalon\WebSalon\Programari.csv";
+                var fs = System.IO.File.OpenRead(path);
+                return File(fs, "application/force-download", Path.GetFileName(path));
+            }
+
+            return null;
         }
 
         // GET: Programare

@@ -20,6 +20,10 @@
         </select>
         <input type="submit" value="Search" />
     </p>
+    <p>
+        <a asp-action="Export" asp-route-type="json">Export json</a>
+        <a asp-action="Export" asp-route-type="csv">Export csv</a>
+    </p>
 </form>
 <table class="table">
     <thead>
