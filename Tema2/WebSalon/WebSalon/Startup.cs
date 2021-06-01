@@ -11,9 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 using WebSalon.Data;
-using Microsoft.EntityFrameworkCore;
-using WebSalon.Services;
 
 namespace WebSalon
 {
@@ -34,11 +33,13 @@ namespace WebSalon
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDbContext<WebSalonContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("WebSalonContext")));
+            services.AddDbContextPool<WebSalonContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("WebSalonContext"), ServerVersion.AutoDetect(Configuration.GetConnectionString("WebSalonContext"))));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultUI()
+                    .AddDefaultTokenProviders();
             services.AddControllersWithViews();
 
             services.Configure<IdentityOptions>(options =>

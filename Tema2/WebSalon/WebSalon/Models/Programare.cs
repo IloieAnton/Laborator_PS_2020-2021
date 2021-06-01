@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebSalon.Models
 {
@@ -22,7 +24,9 @@ namespace WebSalon.Models
         [Display(Name = "Data/Ora")]
         public DateTime dataOra { get; set; }
 
-  
+        public string username { get; set; }
+
+
         public virtual ICollection<ProgramareServiciu> ProgramareServiciu { get; set; }
 
     }

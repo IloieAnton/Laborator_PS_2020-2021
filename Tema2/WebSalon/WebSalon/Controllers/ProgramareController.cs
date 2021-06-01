@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,6 @@ namespace WebSalon.Controllers
     {
         private readonly IProgramareService _programareService;
 
-
         public ProgramareController(WebSalonContext context)
         {
             this._programareService = new ProgramareService(context);
@@ -27,23 +27,12 @@ namespace WebSalon.Controllers
 
         public FileResult Export(string type)
         {
-            List<ProgramareExport> programari = _programareService.getProgramariExport();
-            _programareService.export(type, programari);
+            _programareService.export(type);
 
-            if (type == "json")
-            {
-                string path = @"D:\sem2@utcn\PS\lab8\WebSalon\WebSalon\Programari.json";
-                var fs = System.IO.File.OpenRead(path);
-                return File(fs, "application/force-download", Path.GetFileName(path));
+             string path = @"D:\sem2@utcn\PS\lab8\WebSalon\WebSalon\Programari."+ type;
+             var fs = System.IO.File.OpenRead(path);
+             return File(fs, "application/force-download", Path.GetFileName(path));
 
-            }else if(type == "csv")
-            {
-                string path = @"D:\sem2@utcn\PS\lab8\WebSalon\WebSalon\Programari.csv";
-                var fs = System.IO.File.OpenRead(path);
-                return File(fs, "application/force-download", Path.GetFileName(path));
-            }
-
-            return null;
         }
 
         // GET: Programare
@@ -98,6 +87,8 @@ namespace WebSalon.Controllers
         {
             if (ModelState.IsValid)
             {
+                programare.username = User.Identity.Name;
+                
                 _programareService.AdaugareProgramare(programare);
                 return RedirectToAction(nameof(Index));
             }

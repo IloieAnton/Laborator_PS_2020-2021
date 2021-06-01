@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "emrsI1jL7HjcjfrX0Z1UtnVWRMRsKih6AoP4Y3BgVUxppR4Q8ZeX5lDtKj/+KubEAAaGa6GeCp/Xx66SUiRqIw==",
+  "success": false,
+  "projectFilePath": "D:\\sem2@utcn\\PS\\lab8\\WebSalon\\XUnitTestProject1\\XUnitTestProject1.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project WebSalon is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project WebSalon supports: net5.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "WebSalon",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

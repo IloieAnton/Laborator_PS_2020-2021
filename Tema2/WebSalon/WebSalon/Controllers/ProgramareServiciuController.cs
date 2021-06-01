@@ -11,7 +11,7 @@ using WebSalon.Models;
 
 namespace WebSalon.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class ProgramareServiciuController : Controller
     {
         private readonly WebSalonContext _context;

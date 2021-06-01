@@ -5,6 +5,6 @@ using System.Threading.Tasks;
 
 namespace WebSalon.Services.ExportF
 {
-    public enum ExportTypes { JSON, CSV};
+    public enum ExportTypes {json, csv, xlsx};
 
 }

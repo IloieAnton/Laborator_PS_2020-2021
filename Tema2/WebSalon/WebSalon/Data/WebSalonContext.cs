@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MySql.Data.EntityFramework;
 using WebSalon.Models;
 
 namespace WebSalon.Data
 {
+    [System.Data.Entity.DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class WebSalonContext : DbContext
     {
 

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSalon", "WebSalon\WebSalon.csproj", "{9349D43F-2F2C-400B-8C2C-659C5C5069AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSalon", "WebSalon\WebSalon.csproj", "{9349D43F-2F2C-400B-8C2C-659C5C5069AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{7B1F4028-11C0-4158-8DDE-78AC948BEB78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9349D43F-2F2C-400B-8C2C-659C5C5069AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9349D43F-2F2C-400B-8C2C-659C5C5069AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9349D43F-2F2C-400B-8C2C-659C5C5069AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1F4028-11C0-4158-8DDE-78AC948BEB78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1F4028-11C0-4158-8DDE-78AC948BEB78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1F4028-11C0-4158-8DDE-78AC948BEB78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1F4028-11C0-4158-8DDE-78AC948BEB78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

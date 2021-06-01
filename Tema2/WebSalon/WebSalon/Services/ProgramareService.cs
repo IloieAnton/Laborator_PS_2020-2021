@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebSalon.DAL;
 using WebSalon.Data;
@@ -22,7 +23,7 @@ namespace WebSalon.Services
             exportFactory = new ExportFactory();
         }
 
-        public void AdaugareProgramare(Programare programare)
+        public async void AdaugareProgramare(Programare programare)
         {
             unitOfWork.ProgramareRepository.Insert(programare);
             unitOfWork.Save();
@@ -91,17 +92,9 @@ namespace WebSalon.Services
             return programareDataViewModel;
         }
 
-        public void export(string type, List<ProgramareExport> programari) {
-            Export export = null;
-            if(type == "json")
-            {
-                export = exportFactory.create(ExportTypes.JSON);
-            }else if(type == "csv")
-            {
-                export = exportFactory.create(ExportTypes.CSV);
-            }
-
-            export.export(programari);
+        public void export(string type) {
+            Export export = exportFactory.create(type);
+            export.export(getProgramariExport());
         }
 
         public List<ProgramareExport> getProgramariExport()

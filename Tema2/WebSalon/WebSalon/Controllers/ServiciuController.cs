@@ -12,7 +12,7 @@ using WebSalon.Services;
 
 namespace WebSalon.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class ServiciuController : Controller
     {
         private readonly IServiciuService _serviciuService;

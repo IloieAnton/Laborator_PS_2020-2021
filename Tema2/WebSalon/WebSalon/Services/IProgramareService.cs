@@ -18,7 +18,7 @@ namespace WebSalon.Services
         public IEnumerable<Programare> GetProgramareClient(string numeClient);
         public ProgramareDataViewModel GetProgramareDataInceputFinal(DateTime dataI, DateTime dataF);
         public void Dispose();
-        public void export(string type, List<ProgramareExport> programari);
+        public void export(string type);
         public List<ProgramareExport> getProgramariExport();
     }
 }
